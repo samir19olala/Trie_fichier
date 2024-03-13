@@ -5,10 +5,11 @@ import os
 # repurere les fichieers d'extension proposer
 
 def filtre_extension(fichiers , extensions):
+    extensions = [extension.lower() for extension in extensions ]
     fichier_filter = []
     if extensions:
         for fichier in fichiers : 
-            if fichier.split(".")[-1] in extensions : 
+            if fichier.split(".")[-1].lower() in extensions : 
                 fichier_filter.append(fichier)
         return fichier_filter
     
@@ -22,6 +23,7 @@ def filtre_extension(fichiers , extensions):
 def est_fichier(dateFichier, annee)->bool:
     annee_fichier = int(datetime.datetime.strftime(dateFichier,"%Y"))
     
+   
     if annee[0]<=annee_fichier<=annee[1] or annee[0]>=annee_fichier>=annee[1] or annee[0]==annee_fichier==annee[1]:
         print("ok",annee)
         return True

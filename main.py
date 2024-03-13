@@ -3,7 +3,7 @@ import customtkinter as ctk
 import script
 from tkinter import filedialog
 from tkinter import messagebox
-
+ 
 
 # fonction 
 def Valider():
@@ -13,13 +13,23 @@ def Valider():
     try:
         # Récupérer l'année sélectionnée dans la Combobox
         Selctionner_annee = [int(anne.get()),int(anne2.get())]
+        
+        #avertir l'utilaseur si l'intervale de date a ete renverser 
+        if Selctionner_annee[1]<Selctionner_annee[0]:
+            messagebox.showinfo("Attention" , "L'intervalle de date a été renversée mais cela n'affecte pas le resultat de votre operation")
+            
         # appel de la fonction pour archiver les fichiers dans le repertoire
         dossier_archive = "Archive"+str(Selctionner_annee)
         sortie = entry_sorti.get()+"\\"+ dossier_archive
 
         if entry_nomFichier.get():
             sortie = entry_sorti.get()+"\\"+ entry_nomFichier.get()
-
+        else:
+           if  messagebox.askyesno("Dossier sauvegarde" , f"Attention vous n'avez pas specifié le dossier sauvegarde,par defaut il aura pour nom {dossier_archive} voulez vous continuez ? ") :   
+                pass
+           else :
+               return
+           
         script.archiver_fichiers(entry_entre.get(),sortie, Selctionner_annee , extensions)
         messagebox.showinfo("confirmation", "operation effectuée avec succes")
     except Exception:
@@ -41,7 +51,8 @@ def reset():
 
 # valeurs a choisir lors des tries 
 # rajout des annees 
-valeurs = ['2024','2023','2022','2021','2020','2019','2018','2017','2016','2015','2014'
+valeurs = ['2024','2023','2022','2021','2020','2019','2018','2017','2016','2015',
+           '2014','2013','2012','2011','2010'
            ]
 # extensions = ["exe","png","jpg","webp","docx","xlsx","jpeg","py","cpp"]
 
@@ -51,9 +62,9 @@ root.title("TRIE FICHIER")
 # changer le theme de la fenetre
 
 ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("green")
 
 root.geometry("600x600")
-
 
 frame = ctk.CTkFrame(root, width=480, height=350, fg_color="transparent")
 # frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
@@ -119,7 +130,7 @@ btn_annuler.place(relx=0.314, rely=0.8, anchor=tk.SE)
 btn_valider = ctk.CTkButton(footer, text="Valider", command=Valider)
 btn_valider.place(relx=0.98, rely=0.8, anchor=tk.SE)
 
-signature= ctk.CTkLabel(root, text="vesrion 1.1 by samir olala", fg_color="transparent", font=('arial', 12) )
+signature= ctk.CTkLabel(root, text="vesrion 1.5 by www.samir15olala.com", fg_color="transparent", font=('arial', 12) , text_color="#5555FF")
 signature.place(relx=0.95, rely=1,anchor=tk.SE)
 
 root.mainloop()

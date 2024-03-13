@@ -5,7 +5,11 @@
 Samir Olala
 
 ## Description
+<<<<<<< HEAD
 Ce logiciel de tri de fichiers est conçu pour vous aider à organiser vos fichiers en fonction de différents critères tels que l'extension, la date de modification, ou d'autres attributs. Il est écrit en Python et utilise les bibliothèques `os`, `sys`, et `tkinter` `customtkinter`.
+=======
+Ce logiciel de tri de fichiers est conçu pour vous aider à organiser vos fichiers en fonction de différents critères tels que l'extension, la date de modification, ou d'autres attributs. Il est écrit en Python et utilise les bibliothèques `os`, `sys`,`customtkinter` et `tkinter`.
+>>>>>>> f712e1107c0ba10dbf024c8ad0e3a1c11036b800
 
 ## Fonctionnalités
 - Triez vos fichiers par type (images, documents, vidéos, etc.).
@@ -25,7 +29,11 @@ Ce logiciel de tri de fichiers est conçu pour vous aider à organiser vos fichi
 
 ## Exigences
 - Python 3.x
+<<<<<<< HEAD
 - Bibliothèques : `os`, `sys`, `tkinter` `customtkinter`
+=======
+- Bibliothèques : `os`, `sys`, `tkinter`,`customtkinter`
+>>>>>>> f712e1107c0ba10dbf024c8ad0e3a1c11036b800
 
 ## Année
 2024
